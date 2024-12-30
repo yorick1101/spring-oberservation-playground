@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-observation-playground
+  datasource:
+    url: jdbc:mysql://localhost:3306/user?createDatabaseIfNotExist=true
+    username: root
+    password: password
+
+#https://github.com/alexschroth/spring-boot-demo-otel-manual/blob/main/src/main/resources/application.yml
+management:
+  otlp:
+    tracing:
+      endpoint: "http://localhost:4318/v1/traces"
+      sampling:
+        probability: 1
+        #default is 0.1
+    metrics:
+      export:
+        enabled: false
+
+
+  tracing:
+    sampling:
+      probability: 1.0
